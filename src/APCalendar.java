@@ -25,7 +25,6 @@ public class APCalendar {
     }
     /* private static int firstDayOfYear(int year){
 
-
     }
     private static int dayOfYear(int month, int day, int year){
 
