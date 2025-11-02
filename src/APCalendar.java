@@ -37,40 +37,55 @@ public class APCalendar {
         }
         return day % 7; //mod 7 to count for 7 days of the week
     }
-    /* private static int dayOfYear(int month, int day, int year){
+     private static int dayOfYear(int month, int day, int year){
+        int counter=0;
+        int[] months= new int[12];
+         months[0]=31;//jan
+         months[1]=28;//feb
+         months[2]=31;//mar
+         months[3]=30;//apr
+         months[4]=31;//may
+         months[5]=30;//jun
+         months[6]=31;//jul
+         months[7]=31;//aug
+         months[8]=30;//sept
+         months[9]=31;//oct
+         months[10]=30;//nov
+         months[11]=31;//dec
+         for(int i=1; i<=month-1 ;i++) {
+                counter=counter+months[i-1];
+         }
+         counter+=day;
+         if ((isLeapYear(year)) & month>=2 )// if it is after 2 and is a leap year add 1
+            counter++;
+
+         return counter;
+    }
+
+    public static int dayOfWeek(int month, int day, int year){ //determine day of the week
+        //use mod 7 do find what day of the week it is
+        // find what th first day of year and then what day it is of that year. Take mod 7 and return that value. Since it isn't constant it would be +! every year and +2 if it is a leap year.
+       int first=0;
+       int next =0;
+       first=firstDayOfYear(year);
+       next =dayOfYear(month,day,year);
+       return (first+(next -1))%7;
 
     }
-    public static int dayOfWeek(int month, int day, int year){
-
-    }*/
 
     public static void main(String[] args) {
-
-// many test cases
+// test cases
         System.out.println(APCalendar.isLeapYear(1900));
-        System.out.println(APCalendar.isLeapYear(2000));
-        System.out.println("----------");
-        System.out.println(APCalendar.isLeapYear(2025));
-        System.out.println(APCalendar.isLeapYear(1900));
-        System.out.println(APCalendar.isLeapYear(2000));
-
-
         System.out.println(APCalendar.numberOfLeapYears(2000, 2050));
         System.out.println(APCalendar.numberOfLeapYears(1900, 2050));
-
-        System.out.println("--1900 1950 2000----");
-        System.out.println(APCalendar.firstDayOfYear(1900));
-        System.out.println(APCalendar.firstDayOfYear(1950));
-        System.out.println(APCalendar.firstDayOfYear(2000));
-
-        System.out.println("--2020-2026----");
-        System.out.println(APCalendar.firstDayOfYear(2020));
-        System.out.println(APCalendar.firstDayOfYear(2021));
-        System.out.println(APCalendar.firstDayOfYear(2022));
-        System.out.println(APCalendar.firstDayOfYear(2023));
-        System.out.println(APCalendar.firstDayOfYear(2024));
-        System.out.println(APCalendar.firstDayOfYear(2025));
+        System.out.println(APCalendar.firstDayOfYear(2016));
+        System.out.println(APCalendar.firstDayOfYear(2019));
         System.out.println(APCalendar.firstDayOfYear(2026));
+        System.out.println(dayOfYear(3,1,2017));
+        System.out.println(dayOfYear(3,1,2016));
+        System.out.println(dayOfWeek(1,10,2019));
+        System.out.println(dayOfWeek(1,5,2019));
+
 
 
     }
