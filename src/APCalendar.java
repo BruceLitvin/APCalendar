@@ -56,7 +56,7 @@ public class APCalendar {
                 counter=counter+months[i-1];
          }
          counter+=day;
-         if ((isLeapYear(year)) & month>=2 )// if it is after 2 and is a leap year add 1
+         if ((isLeapYear(year)) & month>2 )// if it is after 2 and is a leap year add 1
             counter++;
 
          return counter;
@@ -69,7 +69,7 @@ public class APCalendar {
        int next =0;
        first=firstDayOfYear(year);
        next =dayOfYear(month,day,year);
-       return (first+(next -1))%7;
+       return (first+(next -1))%7; // -1 will prevent double counting for something like 1,1,2025
 
     }
 
