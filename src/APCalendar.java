@@ -69,7 +69,7 @@ public class APCalendar {
        int next =0;
        first=firstDayOfYear(year);
        next =dayOfYear(month,day,year);
-       return (first+(next -1))%7; // -1 will prevent double counting for something like 1,1,2025
+       return (first+(next -1))%7; // -1 will prevent double counting of 1,1,2025
 
     }
 
